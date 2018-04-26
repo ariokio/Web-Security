@@ -97,7 +97,7 @@
       (8, 'triou', '" . md5('h1rlnifq') . "', 'Collaborator', 'Riou', 'Thierry', 1, 'triou@futuraBI.fr', 3, NOW(), 1),
       (9, 'broy', '" . md5('37f52u21') . "', 'Collaborator', 'Roy', 'Baudouin', 1, 'broy@futuraBI.fr', 3, NOW(), 1),
       (10, 'brenaud', '" . md5('u99hau4d') . "', 'Collaborator', 'Renaud', 'Bernadette', 2, 'brenaud@lrtechnologies.fr', 4, NOW(), 1),
-      (11, 'slamotte', '" . md5('fzghn4lw') . "', 'Collaborator', 'Le Lamotte', 'Samuel', 2, 'slamotte@futuraBI.fr', 4, NOW(), 0),
+      (11, 'slamotte', '" . md5('fzghn4lw') . "', 'Collaborator', 'Lamotte', 'Samuel', 2, 'slamotte@futuraBI.fr', 4, NOW(), 0),
       (12, 'nthomas', '" . md5('en3dtdjy') . "', 'Collaborator', 'Thomas', 'Ninette', 3, 'nthomas@futuraBI.fr', 5, NOW(), 1),
       (13, 'vhoffmann', '" . md5('qzm8hnmw') . "', 'Collaborateur', 'Hoffmann', 'Victorine', 3, 'vhoffmann@futuraBI.fr', 5, NOW(), 1),
       (14, 'rmasson', '" . md5('tdg33vhe') . "', 'Administrator', 'Masson', 'Rodrigue', 1, 'rmasson@futuraBI.fr', 1, NOW(), 1)
