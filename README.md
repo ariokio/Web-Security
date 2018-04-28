@@ -22,7 +22,7 @@ L'application est protégée par une authentification de type nom d'utilisateur/
 
 Vos identifiants étaient : slamotte/fzghn4lw
 
-A votre clavier !
+A vos claviers !
 ```
 
 ## Installation
