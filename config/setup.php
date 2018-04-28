@@ -72,7 +72,7 @@
                   ?>                  
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary form-control" name="createorrestore" value="createorrestore">Create/Restart the database</button>               
+                  <button type="submit" class="btn btn-primary form-control" name="createorrestore" value="createorrestore">Create/Restore the database</button>               
                 </div>
               </form>       
             </div>

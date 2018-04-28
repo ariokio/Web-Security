@@ -1,16 +1,15 @@
 #!/usr/bin/python
 # Script for Collab2 (login, visit index.php)
 import time
-import time
 from selenium import webdriver
 
 driver = webdriver.PhantomJS()
-host = "http://127.0.0.1/"
+host = "http://myexpense.fbi.com/"
 login = "login.php"
 index = "index.php"
 
 logged_pattern = "Last messages"
-time.sleep(60)
+time.sleep(30)
 
 while 1:
     driver.get(host + index)
@@ -23,6 +22,6 @@ while 1:
         driver.find_element_by_name("login").click()
 
     driver.get(host + index)
-    time.sleep(30)
+    time.sleep(20)
 
 driver.quit()

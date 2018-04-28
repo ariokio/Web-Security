@@ -58,8 +58,8 @@
           $_SESSION['firstname'] = $out_firstname;
           $_SESSION['csrf_token'] = md5(mt_rand());
           $_SESSION['ip_addr'] = $_SERVER['REMOTE_ADDR'];
- 
-          session_regenerate_id(true);
+
+          session_regenerate_id(true);      
           if(!($stmt = $GLOBALS['___mysqli_ston']->prepare("UPDATE user SET last_connection = NOW() WHERE username = ?"))) {
             $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
             $stmt->free_result();

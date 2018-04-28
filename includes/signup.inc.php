@@ -145,7 +145,8 @@
 
     $role = COLLABORATOR_ROLE;
     $state = INACTIVE;
-    if(!$stmt->bind_param("sssssisii", $username, md5($password), $role, $lastname, $firstname, $site_id, $email, $manager_id, $state)) {
+    $md5Password = md5($password);
+    if(!$stmt->bind_param("sssssisii", $username, $md5Password, $role, $lastname, $firstname, $site_id, $email, $manager_id, $state)) {
       $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
       return;
     }

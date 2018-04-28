@@ -168,8 +168,8 @@
                           <?php
                             echo '<input id="csrf_token" type="hidden" name="csrf_token" value=' . $_SESSION['csrf_token'] . ' autocomplete="off">';
                           ?>
-                          <button type="submit" class="btn btn-danger btn-xs" name="action" value="refuseExpenseReport" alt="Refuse Expense Report" title="Refuse Expense Report"><span class="glyphicon glyphicon-remove"></span></button>     
-                          <button type="submit" class="btn btn-success btn-xs" name="action" value="validateExpenseReport" alt="Validate Expense Report" title="Validate Expense Report"><span class="glyphicon glyphicon-ok"></span></button>
+                          <button type="submit" class="btn btn-danger btn-xs" name="action" value="refuseExpenseReport" title="Refuse Expense Report"><span class="glyphicon glyphicon-remove"></span></button>     
+                          <button type="submit" class="btn btn-success btn-xs" name="action" value="validateExpenseReport" title="Validate Expense Report"><span class="glyphicon glyphicon-ok"></span></button>
                         </form>
                       </td>
                     <?php
@@ -184,8 +184,8 @@
                           <?php
                             echo '<input id="csrf_token" type="hidden" name="csrf_token" value=' . $_SESSION['csrf_token'] . ' autocomplete="off">';
                           ?>
-                          <button type="submit" class="btn btn-danger btn-xs" name="action" value="refuseExpenseReport" alt="Refuse Expense Report" title="Refuse Expense Report"><span class="glyphicon glyphicon-remove"></span></button>     
-                          <button type="submit" class="btn btn-success btn-xs" name="action" value="sentForPaymentExpenseReport" alt="Sent For Payment Expense Report" title="Sent For Payment Expense Report"><span class="glyphicon glyphicon-euro"></span></button>
+                          <button type="submit" class="btn btn-danger btn-xs" name="action" value="refuseExpenseReport" title="Refuse Expense Report"><span class="glyphicon glyphicon-remove"></span></button>     
+                          <button type="submit" class="btn btn-success btn-xs" name="action" value="sentForPaymentExpenseReport" title="Sent For Payment Expense Report"><span class="glyphicon glyphicon-euro"></span></button>
                         </form>
                       </td>                    
                     <?php
@@ -240,8 +240,8 @@
                         <?php
                           echo '<input id="csrf_token" type="hidden" name="csrf_token" value=' . $_SESSION['csrf_token'] . ' autocomplete="off">';
                         ?>
-                        <button type="submit" class="btn btn-danger btn-xs" name="action" value="deleteExpenseReport" alt="Delete Exepense Report" title="Delete Exepense Report"><span class="glyphicon glyphicon-trash"></span></button>     
-                        <button type="submit" class="btn btn-success btn-xs" name="action" value="submitExpenseReport" alt="Submit Exepense Report" title="Submit Exepense Report"><span class="glyphicon glyphicon-ok"></span></button>
+                        <button type="submit" class="btn btn-danger btn-xs" name="action" value="deleteExpenseReport" title="Delete Exepense Report"><span class="glyphicon glyphicon-trash"></span></button>     
+                        <button type="submit" class="btn btn-success btn-xs" name="action" value="submitExpenseReport" title="Submit Exepense Report"><span class="glyphicon glyphicon-ok"></span></button>
                       </form>
                     </td>
                     <?php

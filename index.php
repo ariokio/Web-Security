@@ -56,17 +56,19 @@
                   <h3 class="panel-title">Confirm your action</h3>
                 </div>
                 <div class="panel-body">
-                  <form class="col-md-4 col-md-offset-4" action="/index.php" method="POST">               
-                    <legend>Are you sure to want to delete this message ?</legend>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-success form-control" name="confirmDeleteMessage" value="yes">Yes</button>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-danger form-control" name="confirmDeleteMessage" value="no">No</button>
-                    </div>
-                    <?php
-                      echo '<input id="csrf_token" type="hidden" name="csrf_token" value=' . $_SESSION['csrf_token'] . ' autocomplete="off">';
-                    ?>
+                  <form class="col-md-4 col-md-offset-4" action="/index.php" method="POST">  
+                  	<fieldset>         
+                      <legend>Are you sure to want to delete this message ?</legend>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success form-control" name="confirmDeleteMessage" value="yes">Yes</button>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-danger form-control" name="confirmDeleteMessage" value="no">No</button>
+                      </div>
+                      <?php
+                        echo '<input id="csrf_token" type="hidden" name="csrf_token" value=' . $_SESSION['csrf_token'] . ' autocomplete="off">';
+                      ?>
+                    </fieldset>    
                   </form>
                 </div>
               </div>
@@ -106,9 +108,9 @@
                           echo '<td class="text-center col-md-2">' . 'Deleted User' . '<br />' . htmlspecialchars($row['post_date']) . '</td>';
                         }
                         else {
-                          echo '<td class="text-center col-md-2">' . $row['firstname'] . ' ' . $row['lastname'] . ' (' . htmlspecialchars($row['site']) . ')' . '<br />' . htmlspecialchars($row['role']) . '<br />' . htmlspecialchars($row['post_date']) . '</td>';
+                            echo '<td class="text-center col-md-2">' . htmlspecialchars($row['firstname']) . ' ' . htmlspecialchars($row['lastname']) . ' (' . htmlspecialchars($row['site']) . ')' . '<br />' . htmlspecialchars($row['role']) . '<br />' . htmlspecialchars($row['post_date']) . '</td>';
                         }
-                        echo '<td>' . htmlspecialchars($row['message']) . '</td>';
+                        echo '<td>' . $row['message'] . '</td>';
                         if(isset($_SESSION['role']) && ($_SESSION['role'] === FINANCIAL_APPROVER_ROLE || $_SESSION['role'] === ADMIN_ROLE)) {
                       ?>
                           <td class="text-center col-md-1" style="vertical-align: middle;">

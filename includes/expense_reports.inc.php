@@ -32,8 +32,47 @@
     while($stmt->fetch()) {
       $expense_reports[] = array('id'=>$out_id, 'expense_date'=>$out_expense_date, 'amount'=>$out_amount, 'comment'=>$out_comment, 'status'=>$out_status, 'user_id'=>$out_user_id);
     }
-
     $stmt->close();
+    
+    // Verify Flag
+    if(!isset($GLOBALS['___mysqli_ston']) || !is_object($GLOBALS['___mysqli_ston']) || $GLOBALS['___mysqli_ston']->connect_errno) {
+        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+        return;
+    }
+    
+    if(!($stmt = $GLOBALS['___mysqli_ston']->prepare("SELECT amount, status FROM expense WHERE user_id = ?"))) {
+        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+        return;
+    }
+    
+    // Hardcoded id
+    $user_id = 11;
+    if(!$stmt->bind_param("i", $user_id)) {
+        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+        return;
+    }
+    
+    if(!$stmt->execute()) {
+        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+        return;
+    }
+    
+    $out_amount = NULL;
+    $out_status = NULL;
+    $list = array();
+    $stmt->bind_result($out_amount, $out_status);
+    while($stmt->fetch()) {
+        $list[] = array('amount'=>$out_amount, 'status'=>$out_status);
+    }
+    
+    foreach ($list as $row) {
+        if($row['amount'] === 750 && $row['status'] === SENT_FOR_PAYMENT) {
+            $flag = "flag{H4CKY0URL1F3}";
+            $_SESSION['message'] = "Congratz ! The flag is : " . $flag;
+        }
+    }
+    
+    $stmt->close();    
     return $expense_reports;
   }
 
@@ -601,46 +640,6 @@
       forbidden();
     }
 
-    $stmt->close();
-
-    // Verify Flag
-    if(!isset($GLOBALS['___mysqli_ston']) || !is_object($GLOBALS['___mysqli_ston']) || $GLOBALS['___mysqli_ston']->connect_errno) {
-      $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-      return;
-    }
-
-    if(!($stmt = $GLOBALS['___mysqli_ston']->prepare("SELECT amount, comment, status FROM expense WHERE user_id = ?"))) {
-      $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-      return;
-    }
-
-    $user_id = 11;
-    if(!$stmt->bind_param("i", $user_id)) {
-      $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-      return;
-    }
-
-    if(!$stmt->execute()) {
-      $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-      return;
-    }
-
-    $out_amount = NULL;
-    $out_comment = NULL;
-    $out_status = NULL;
-    $list = array();
-    $stmt->bind_result($out_amount, $out_comment, $out_status);
-    while($stmt->fetch()) {
-      $list[] = array('amount'=>$out_amount, 'comment'=>$out_comment, 'status'=>$out_status);
-    }
-
-    foreach ($list as $row) {
-      if($row['amount'] === 750 && $row['comment'] === "Plane tickets, Cybersecurity project n°5423545, Toulouse." && $row['status'] === SENT_FOR_PAYMENT) {
-        $flag = "flag{H4CKY0URL1F3}";
-        $_SESSION['message'] = "Congratz ! The flag is : " . $flag;
-      }
-    }
-
-    $stmt->close();
+    $stmt->close();    
   }
 ?>

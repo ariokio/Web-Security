@@ -18,3 +18,7 @@ body {
   background-color: #053959;
   border-color: #053959;
 }
+
+.alert-block {
+	margin-bottom : 0;
+}

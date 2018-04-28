@@ -58,14 +58,16 @@
                   <h3 class="panel-title">Confirm your action</h3>
                 </div>
                 <div class="panel-body">
-                  <form class="col-md-4 col-md-offset-4" action="/admin/admin.php" method="POST">               
-                    <legend>Are you sure to want to delete this user ?</legend>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-success form-control" name="confirmDeleteUser" value="yes">Yes</button>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-danger form-control" name="confirmDeleteUser" value="no">No</button>
-                    </div>
+                  <form class="col-md-4 col-md-offset-4" action="/admin/admin.php" method="POST">
+                  	<fieldset>              
+                      <legend>Are you sure to want to delete this user ?</legend>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success form-control" name="confirmDeleteUser" value="yes">Yes</button>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-danger form-control" name="confirmDeleteUser" value="no">No</button>
+                      </div>
+                    </fieldset> 
                   </form>
                 </div>
               </div>
@@ -109,7 +111,7 @@
                           <?php
                             echo '<input type="hidden" name="id" value="' . $row['id'] . '" />';
                             if($row['status'] === ACTIVE) {
-                              if($row['id'] === $_SESSION['id']) {
+                              if(isset($_SESSION['id']) && $row['id'] === $_SESSION['id']) {
                                 echo '<button type="submit" class="btn btn-success btn-xs" name="status" value="inactive" disabled>Active</button>';
                               }
                               else {
@@ -117,7 +119,7 @@
                               }                              
                             }
                             else {
-                              if($row['id'] === $_SESSION['id']) {
+                              if(isset($_SESSION['id']) && $row['id'] === $_SESSION['id']) {
                                 echo '<button type="submit" class="btn btn-danger btn-xs" name="status" value="active" disabled>Inactive</button>';
                               }
                               else {
@@ -130,10 +132,10 @@
                         <td class="text-center">
                           <form action="/admin/admin.php" method="POST">
                             <?php
-                              if($row['id'] !== $_SESSION['id']) {
+                              if(isset($_SESSION['id']) && $row['id'] !== $_SESSION['id']) {
                                 echo '<input type="hidden" name="id" value="' . $row['id'] . '" />';
                             ?>
-                                <button type="submit" class="btn btn-danger btn-xs" name="deleteUser" value="deleteUser" alt="Delete User" title="Delete User"><span class="glyphicon glyphicon-trash"></span></button>
+                                <button type="submit" class="btn btn-danger btn-xs" name="deleteUser" value="deleteUser" title="Delete User"><span class="glyphicon glyphicon-trash"></span></button>
                             <?php
                               }
                             ?>

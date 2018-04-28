@@ -1,9 +1,13 @@
 <?php
-  session_start();
+  $ok = @session_start();
+  if(!$ok){
+    session_regenerate_id(true);
+    session_start();
+  }
   if(!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = md5(mt_rand());
   }
-
+  
   require_once $_SERVER['DOCUMENT_ROOT'] . "/config/config.inc.php";
   define("PASSWORD_MIN_LENGTH", 8);
   
@@ -25,8 +29,8 @@
   define("VALIDATED_ORDER", 2);
   define("OPENED_ORDER", 3);
   define("SENT_FOR_PAYMENT_ORDER", 4);
-  define("REFUSED_ORDER", 5);  
-
+  define("REFUSED_ORDER", 5);
+  
   // Connect to database
   function connectToDatabase() {
     global $_bdd;

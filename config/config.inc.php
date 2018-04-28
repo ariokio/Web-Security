@@ -178,6 +178,6 @@
       return;
     }
 
-    $_SESSION['message'] = "The database has been restored, have fun !";
+    $_SESSION['message'] = "The database has been created/restored, have fun !";
   }
 ?>

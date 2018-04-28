@@ -1,4 +1,6 @@
 # MyExpense Web Application
+**Niveau de difficulté :** EASY
+
 MyExpense est une application **volontairement vulnérable** permettant de s’entraîner à détecter et à exploiter différentes vulnérabilités web. Contrairement à une application de type "challenge" plus classique (qui permet de s'entrainer sur une seule vulnérabilité précise), MyExpense contient un ensemble de vulnérabilités. 
 
 Le second objectif de cette application est d'immerger l'attaquant dans un environnement professionnel. Pour cela, un effort a été fourni afin que l'application ressemble le plus possible à un outil destiné à une utilisation interne par les employés de l'entreprise "Futura Business Informatique". De plus, il est possible (et nécessaire afin de récupérer le flag/drapeau validant le challenge) de lancer des scripts permettant de simuler l'utilisation de l'application par des employés afin d'exploiter certaines vulnérabilités ayant pour victime les utilisateurs authentifiés.
@@ -32,6 +34,11 @@ L'installation a été testée sous un système d'exploitation Linux Debian9.
 Dans un premier temps il est nécessaire d'installer les paquets correspondant au serveur web Apache, à PHP ainsi qu'a la base de données MySql (qui sera MariaDB pour une Debian9) :
 ```
 # apt-get install apache2 mysql-server php7.0 php7.0-mysql
+```
+
+Puis :
+```
+# rm /var/www/html/index.html
 ```
 
 ### Installation de git et récupération du code source
@@ -80,6 +87,11 @@ Modifier la ligne _AllowOverride None_ par _AllowOverride All_ dans la partie _<
 </Directory>
 ```
 
+Puis redémarrer le service Apache2 :
+```
+# service apache2 restart
+```
+
 ### Configuration de la base de données
 ```
 # mysql -u root
@@ -114,7 +126,7 @@ Puis modifier les informations de connexion :
 ```
 
 ### Création de la base de données
-La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://<hostname>/config/setup.php_ :
+La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://hostname/config/setup.php_ :
 ![Configuration BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db.png)
 
 Vérifier les informations puis cliquer sur **Create/Restore the database** :
@@ -123,7 +135,17 @@ Vérifier les informations puis cliquer sur **Create/Restore the database** :
 ### Installation des scripts employés
 L'application doit être maintenant installée et fonctionnelle. Afin de pouvoir compléter le challenge proposé et de rendre l'expérience un peu plus immersif, il est nécessaire d'installer les scripts de simulation d'action des employés.
 
-Tout d'abord, déplacer les scripts présents dans le répertoire _/var/www/html/config_ dans un autre répertoire, par exemple _/opt_ :
+Tout d'abord, renseigner le fichier hosts (_/etc/hosts_) sur la machine virtuelle **ET** sur votre machine d'attaque comme indiqué ci-dessous :
+```
+# vim /etc/hosts
+```
+
+```
+192.168.56.100  myexpense.fbi.com
+```
+**Note :** Ne pas oublier de modifier le fichier hosts également sous votre machine Windows par exemple (_C:\Windows\System32\drivers\etc\hosts_)
+
+Puis déplacer les scripts présents dans le répertoire _/var/www/html/config_ dans un autre répertoire, par exemple _/opt_ :
 ```
 # mv /var/www/html/config/login_collab1_script.py /opt
 # mv /var/www/html/config/login_collab2_script.py /opt
@@ -133,7 +155,7 @@ Tout d'abord, déplacer les scripts présents dans le répertoire _/var/www/html
 
 Les scripts nécessitent plusieurs paquets/composants afin de fonctionner (Python, Selenium Webdriver ainsi que PhantomJS). Tout d'abord installer Python :
 ```
-# apt-get install python3 python-pip libfontconfig
+# apt-get install python python-pip libfontconfig
 ```
 
 Puis Selenium :
@@ -156,7 +178,7 @@ Il est possible d'exécuter les scripts directement et de commencer à attaquer 
 # python -W ignore /opt/login_admin_script.py &
 ```
 
-Il peut être plus judicieux de lancer ses scripts au démarrage de la machine afin de plus avoir à les lancer à chaque fois :
+Il peut être plus judicieux de lancer ses scripts au démarrage de la machine afin de ne pas avoir à les lancer à chaque fois :
 ```
 vim /etc/systemd/system/rc-local.service
 ```

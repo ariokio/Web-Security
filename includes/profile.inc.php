@@ -141,6 +141,8 @@
       return;
     }
     
+    $_SESSION['lastname'] = $lastname;
+    $_SESSION['firstname'] = $firstname;
     $_SESSION['message'] = "Your changes have been saved successfully !";
     $stmt->close();
   }

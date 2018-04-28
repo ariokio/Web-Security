@@ -4,7 +4,7 @@ import time
 from selenium import webdriver
 
 driver = webdriver.PhantomJS()
-host = "http://127.0.0.1/"
+host = "http://myexpense.fbi.com/"
 login = "login.php"
 index = "index.php"
 admin = "admin/admin.php"
