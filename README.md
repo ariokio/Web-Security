@@ -237,7 +237,7 @@ Ajouter le script au démarrage du système :
 
 Redémarrer :
 ```
-reboot
+# reboot
 ```
 
 L'installation est maintenant **complète**.
