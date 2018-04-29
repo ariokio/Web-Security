@@ -24,8 +24,17 @@ Vos identifiants étaient : slamotte/fzghn4lw
 
 A vos claviers !
 ```
+## Téléchargement de la machine virtuelle
+Il est plus simple de récupérer l'application en téléchargeant directement la machine virtuelle au format _.vbox_ :
+[MyExpense Virtual Machine](http://www.mediafire.com/file/rzg9dxt14tm4ozs/MyExpense_%28192.168.56.140%29.ova)
 
-## Installation
+Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est accessible via le nom de domaine _myexpense.fbi.com_. Afin que cela fonctionne sur les machines d'attaques, il faut éditer les fichiers hosts des différentes machines utilisées et y ajouter le ligne suivante :
+```
+192.168.56.140  myexpense.fbi.com
+```
+**Note :** Sous linux le fichier se situe dans _/etc/hosts_ et sous Windows dans _C:\Windows\System32\drivers\etc\hosts_
+
+## Installation à partir des sources
 
 ### Système d'exploitation
 L'installation a été testée sous un système d'exploitation Linux Debian9.
