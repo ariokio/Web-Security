@@ -35,44 +35,46 @@
     $stmt->close();
     
     // Verify Flag
-    if(!isset($GLOBALS['___mysqli_ston']) || !is_object($GLOBALS['___mysqli_ston']) || $GLOBALS['___mysqli_ston']->connect_errno) {
-        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-        return;
-    }
-    
-    if(!($stmt = $GLOBALS['___mysqli_ston']->prepare("SELECT amount, status FROM expense WHERE user_id = ?"))) {
-        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-        return;
-    }
-    
-    // Hardcoded id
-    $user_id = 11;
-    if(!$stmt->bind_param("i", $user_id)) {
-        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-        return;
-    }
-    
-    if(!$stmt->execute()) {
-        $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
-        return;
-    }
-    
-    $out_amount = NULL;
-    $out_status = NULL;
-    $list = array();
-    $stmt->bind_result($out_amount, $out_status);
-    while($stmt->fetch()) {
-        $list[] = array('amount'=>$out_amount, 'status'=>$out_status);
-    }
-    
-    foreach ($list as $row) {
-        if($row['amount'] === 750 && $row['status'] === SENT_FOR_PAYMENT) {
-            $flag = "flag{H4CKY0URL1F3}";
-            $_SESSION['message'] = "Congratz ! The flag is : " . $flag;
+    if(isset($_SESSION['username']) && $_SESSION['username'] == 'slamotte') {
+        if(!isset($GLOBALS['___mysqli_ston']) || !is_object($GLOBALS['___mysqli_ston']) || $GLOBALS['___mysqli_ston']->connect_errno) {
+            $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+            return;
         }
+        
+        if(!($stmt = $GLOBALS['___mysqli_ston']->prepare("SELECT amount, status FROM expense WHERE user_id = ?"))) {
+            $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+            return;
+        }
+        
+        // Hardcoded id
+        $user_id = 11;
+        if(!$stmt->bind_param("i", $user_id)) {
+            $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+            return;
+        }
+        
+        if(!$stmt->execute()) {
+            $_SESSION['technical_error'] = "Sorry, a technical error has occured.";
+            return;
+        }
+        
+        $out_amount = NULL;
+        $out_status = NULL;
+        $list = array();
+        $stmt->bind_result($out_amount, $out_status);
+        while($stmt->fetch()) {
+            $list[] = array('amount'=>$out_amount, 'status'=>$out_status);
+        }
+        
+        foreach ($list as $row) {
+            if($row['amount'] === 750 && $row['status'] === SENT_FOR_PAYMENT) {
+                $flag = "flag{H4CKY0URL1F3}";
+                $_SESSION['message'] = "Congratz ! The flag is : " . $flag;
+            }
+        }
+        
+        $stmt->close();
     }
-    
-    $stmt->close();    
     return $expense_reports;
   }
 

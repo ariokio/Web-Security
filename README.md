@@ -111,7 +111,7 @@ Bye
 
 Il faut maintenant renseigner ces informations au niveau du fichier de configuration de l'application :
 ```
-vim /var/www/html/config/config.inc.php
+# vim /var/www/html/config/config.inc.php
 ```
 
 Puis modifier les informations de connexion :
@@ -140,6 +140,7 @@ Tout d'abord, renseigner le fichier hosts (_/etc/hosts_) sur la machine virtuell
 # vim /etc/hosts
 ```
 
+Ici _192.168.56.100_ est un exemple, il faut insérer l'adresse IP de la machine virtulle qui héberge l'application :
 ```
 192.168.56.100  myexpense.fbi.com
 ```
@@ -180,7 +181,7 @@ Il est possible d'exécuter les scripts directement et de commencer à attaquer 
 
 Il peut être plus judicieux de lancer ses scripts au démarrage de la machine afin de ne pas avoir à les lancer à chaque fois :
 ```
-vim /etc/systemd/system/rc-local.service
+# vim /etc/systemd/system/rc-local.service
 ```
 
 Renseigner ceci dans le fichier :
@@ -203,7 +204,7 @@ WantedBy=multi-user.target
 
 Créer le fichier _rc.local_ :
 ```
-vim /etc/rc.local
+# vim /etc/rc.local
 ```
 
 Renseigner ceci :
