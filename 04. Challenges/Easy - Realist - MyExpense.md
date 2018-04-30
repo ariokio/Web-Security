@@ -145,7 +145,7 @@ Puis modifier les informations de connexion :
 ```
 
 ### Création de la base de données
-La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://hostname/config/setup.php_ :
+La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://192.168.56.141/config/setup.php_ :
 ![Configuration BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db.png)
 
 Vérifier les informations puis cliquer sur **Create/Restore the database** :
@@ -260,4 +260,4 @@ Redémarrer :
 # reboot
 ```
 
-L'installation est maintenant **complète**.
+L'installation est maintenant **complète**, l'application est disponible à l'adresse _http://myexpense.fbi.com_
