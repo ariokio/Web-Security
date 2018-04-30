@@ -1,5 +1,9 @@
 # MyExpense Web Application
-**Niveau de difficulté :** EASY
+
+## Détails du challenge
+* **Difficulté :** Easy
+* **Type :** Réaliste
+* **Technologies :** PHP / MySQL
 
 MyExpense est une application **volontairement vulnérable** permettant de s’entraîner à détecter et à exploiter différentes vulnérabilités web. Contrairement à une application de type "challenge" plus classique (qui permet de s'entrainer sur une seule vulnérabilité précise), MyExpense contient un ensemble de vulnérabilités. 
 
@@ -22,13 +26,15 @@ L'application est protégée par une authentification de type nom d'utilisateur/
 
 Vos identifiants étaient : slamotte/fzghn4lw
 
+Une fois le challenge réussi, le flag sera affiché sur l'application en étant connecté avec votre compte.
+
 A vos claviers !
 ```
 ## Téléchargement de la machine virtuelle
 Il est plus simple de récupérer l'application en téléchargeant directement la machine virtuelle au format _.vbox_ :
 [MyExpense Virtual Machine](http://www.mediafire.com/file/rzg9dxt14tm4ozs/MyExpense_%28192.168.56.140%29.ova)
 
-Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est accessible via le nom de domaine _myexpense.fbi.com_. Afin que cela fonctionne sur les machines d'attaques, il faut éditer les fichiers hosts des différentes machines utilisées et y ajouter le ligne suivante :
+Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est accessible via le nom de domaine _myexpense.fbi.com_. Afin que cela fonctionne sur les machines d'attaques, il faut éditer les fichiers hosts des différentes machines utilisées et y ajouter la ligne suivante :
 ```
 192.168.56.140  myexpense.fbi.com
 ```
@@ -57,13 +63,13 @@ Il est possible d'installer l'utilitaire git afin de récupérer les sources de 
 ```
 # apt-get install git
 # cd /tmp
-# git clone -b MyExpense-master https://github.com/MalweenLeGoffic/Web.git
-# rm -rf /tmp/Web/.git
+# git clone -b MyExpense-master https://github.com/MalweenLeGoffic/Web-Security.git
+# rm -rf /tmp/Web-Security/.git
 ```
 
 Il faut ensuite déplacer le code source au sein du répertoire */var/www/html/* d'Apache :
 ```
-# mv /tmp/Web/* /var/www/html/
+# mv /tmp/Web-Security/* /var/www/html/
 ```
 
 #### Par l'archive Zip
@@ -75,10 +81,10 @@ Il sera peut être nécessaire d'installer le paquet **unzip** afin d'extraire l
 Puis extraire l'archive :
 ```
 # cd /tmp
-# wget https://github.com/MalweenLeGoffic/Web/archive/MyExpense-master.zip
+# wget https://github.com/MalweenLeGoffic/Web-Security/archive/MyExpense-master.zip
 # unzip MyExpense-master.zip
-# mv Web-MyExpense-master/* /var/www/html
-# mv Web-MyExpense-master/.htaccess /var/www/html/.htaccess
+# mv Web-Security-MyExpense-master/* /var/www/html
+# mv Web-Security-MyExpense-master/.htaccess /var/www/html/.htaccess
 ```
 
 ### Configuration Apache2
