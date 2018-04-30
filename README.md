@@ -40,6 +40,10 @@ Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est access
 ```
 **Note :** Sous linux le fichier se situe dans _/etc/hosts_ et sous Windows dans _C:\Windows\System32\drivers\etc\hosts_
 
+## Réinitialiser la base de données de l'application
+Il est possible de restaurer la base de données de l'application afin de pouvoir recommancer à partir de l'état initial. Pour cela il faut se rendre sur l'url _http://myexpense.fbi.com/config/setup.php_ puis de cliquer sur _Create/restore the database_. Un message indiquant que l'opération a été effectuée avec succès doit apparaitre :
+![Création BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db_success.png)
+
 ## Installation à partir des sources
 
 ### Système d'exploitation
@@ -141,7 +145,7 @@ Puis modifier les informations de connexion :
 ```
 
 ### Création de la base de données
-La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://hostname/config/setup.php_ :
+La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://192.168.56.141/config/setup.php_ :
 ![Configuration BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db.png)
 
 Vérifier les informations puis cliquer sur **Create/Restore the database** :
@@ -256,4 +260,4 @@ Redémarrer :
 # reboot
 ```
 
-L'installation est maintenant **complète**.
+L'installation est maintenant **complète**, l'application est disponible à l'adresse _http://myexpense.fbi.com_
