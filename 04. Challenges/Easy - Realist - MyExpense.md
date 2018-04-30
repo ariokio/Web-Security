@@ -34,7 +34,7 @@ A vos claviers !
 Il est plus simple de récupérer l'application en téléchargeant directement la machine virtuelle au format _.vbox_ :
 [MyExpense Virtual Machine](http://www.mediafire.com/file/rzg9dxt14tm4ozs/MyExpense_%28192.168.56.140%29.ova)
 
-Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est accessible via le nom de domaine _myexpense.fbi.com_. Afin que cela fonctionne sur les machines d'attaques, il faut éditer les fichiers hosts des différentes machines utilisées et y ajouter le ligne suivante :
+Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est accessible via le nom de domaine _myexpense.fbi.com_. Afin que cela fonctionne sur les machines d'attaques, il faut éditer les fichiers hosts des différentes machines utilisées et y ajouter la ligne suivante :
 ```
 192.168.56.140  myexpense.fbi.com
 ```
