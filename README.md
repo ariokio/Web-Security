@@ -42,7 +42,7 @@ Par défaut, l'application écoute sur l'adresse IP 192.168.56.140 et est access
 
 ## Réinitialiser la base de données de l'application
 Il est possible de restaurer la base de données de l'application afin de pouvoir recommancer à partir de l'état initial. Pour cela il faut se rendre sur l'url _http://myexpense.fbi.com/config/setup.php_ puis de cliquer sur _Create/restore the database_. Un message indiquant que l'opération a été effectuée avec succès doit apparaitre :
-![Création BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db_success.png)
+![Création BDD](https://github.com/Sharpforce/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db_success.png)
 
 ## Installation à partir des sources
 
@@ -61,13 +61,13 @@ Puis :
 ```
 
 ### Installation de git et récupération du code source
-Il est possible d'installer l'utilitaire git afin de récupérer les sources de l'application ou alors de télécharger directement sur GitHub l'archive au format ZIP : [MyExpense.zip](https://github.com/MalweenLeGoffic/Web/archive/MyExpense-master.zip).
+Il est possible d'installer l'utilitaire git afin de récupérer les sources de l'application ou alors de télécharger directement sur GitHub l'archive au format ZIP : [MyExpense.zip](https://github.com/Sharpforce/Web/archive/MyExpense-master.zip).
 
 #### Par l'utilitaire Git
 ```
 # apt-get install git
 # cd /tmp
-# git clone -b MyExpense-master https://github.com/MalweenLeGoffic/Web-Security.git
+# git clone -b MyExpense-master https://github.com/Sharpforce/Web-Security.git
 # rm -rf /tmp/Web-Security/.git
 ```
 
@@ -85,7 +85,7 @@ Il sera peut être nécessaire d'installer le paquet **unzip** afin d'extraire l
 Puis extraire l'archive :
 ```
 # cd /tmp
-# wget https://github.com/MalweenLeGoffic/Web-Security/archive/MyExpense-master.zip
+# wget https://github.com/Sharpforce/Web-Security/archive/MyExpense-master.zip
 # unzip MyExpense-master.zip
 # mv Web-Security-MyExpense-master/* /var/www/html
 # mv Web-Security-MyExpense-master/.htaccess /var/www/html/.htaccess
@@ -146,10 +146,10 @@ Puis modifier les informations de connexion :
 
 ### Création de la base de données
 La configuration de l'application MyExpense doit être maintenant accessible via l'url _http://192.168.56.141/config/setup.php_ :
-![Configuration BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db.png)
+![Configuration BDD](https://github.com/Sharpforce/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db.png)
 
 Vérifier les informations puis cliquer sur **Create/Restore the database** :
-![Création BDD](https://github.com/MalweenLeGoffic/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db_success.png)
+![Création BDD](https://github.com/Sharpforce/Web/blob/master/.images/04.%20Challenges/01.%20MyExpense_config_db_success.png)
 
 ### Installation des scripts employés
 L'application doit être maintenant installée et fonctionnelle. Afin de pouvoir compléter le challenge proposé et de rendre l'expérience un peu plus immersif, il est nécessaire d'installer les scripts de simulation d'action des employés.
